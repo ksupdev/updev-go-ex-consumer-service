@@ -27,3 +27,4 @@ Hi%
         bc585e42ba0f   3dsinteractive/zookeeper:3.0      "/app-entrypoint.sh …"   43 seconds ago   Up 42 seconds                   2888/tcp, 0.0.0.0:2181->2181/tcp, 3888/tcp   updev-go-ex-consumer-service_zookeeper_1
     ```
 ### setup go project
+1. implement context.go to be interface of Context
