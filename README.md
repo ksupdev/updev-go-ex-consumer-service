@@ -87,7 +87,32 @@ Hi%
     - implement func `Stop` : จะถูกเรียกเพื่อเป็นการกำหนดค่าให้ Channel
 4. Implement main.go 
     - implement สำหรับส่วนที่เป็น Consummer
-    - implement สำหรับส่วนที่เป็น Producer
+        ```powershell
+        % go run *.go
+        Consumer:  Subscribed topic not available: when-citizen-has-registered-5577006791947779410: Broker: Unknown topic or partition
+        ```
+    - implement สำหรับส่วนที่เป็น Producer โดยในส่วนนี้จะเป็นการทำงานแยกจาก consumer โดยเราจะให้ทำงานในอีก goroutine
+    - create producer.go
+        - func ``NewProducer`` ใช้สำหรับสร้าง object ของ Producer strcut
+        - func ``newKafkaProducer`` ใช้สำหรับ config lib ``github.com/confluentinc/confluent-kafka-go/kafka`` ในส่วนของ Producer
+        - func ``getProducer`` ใช้สำหรับ สร้าง object producer และจะมีการ manage object นั้นเป็น singleton เพราะทุกครั้งที่มีการสร้างใหม่จะใช้ resoure เป็นเวลามาก โดยการสร้างก็จะเป็นการเรียกใช้ ``newKafkaProducer``
+        - func ``SendMessage`` จะเรียกใช้ ``getProducer`` เพื่อทำการสร้าง object และทำการส่งค่าไปที่ Kafka 
+    - ทดสอบ run เพื่อส่ง data จาก consumer
+        ```powershell
+        aroon@Nuttakorns-MacBook-Pro updev-go-ex-consumer-service % go run *.go                          
+        Consumer:  {"message_id":0}
+        Consumer:  {"message_id":1}
+        Consumer:  {"message_id":2}
+        Consumer:  {"message_id":3}
+        Consumer:  {"message_id":4}
+        Consumer:  {"message_id":5}
+        Consumer:  {"message_id":6}
+        Consumer:  {"message_id":7}
+        Consumer:  {"message_id":8}
+        Consumer:  {"message_id":9}
+        ``
+
+
 
     
     
