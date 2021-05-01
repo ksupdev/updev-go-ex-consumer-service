@@ -85,6 +85,9 @@ Hi%
         }
     ```
     - implement func `Stop` : จะถูกเรียกเพื่อเป็นการกำหนดค่าให้ Channel
+4. Implement main.go 
+    - implement สำหรับส่วนที่เป็น Consummer
+    - implement สำหรับส่วนที่เป็น Producer
 
     
     
